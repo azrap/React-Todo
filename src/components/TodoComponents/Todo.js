@@ -92,19 +92,5 @@ export default Todo;
   
 //   ];
   
-Todo = props => {
-{/* add className for styling later */}
-<div> 
-    
-<p>{props.text} </p>
-
-</div>
 
 
-
-}
-
-
-
-
-export default Todos

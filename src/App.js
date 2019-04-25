@@ -1,5 +1,5 @@
 import React from 'react';
- import Todos from './Todo';
+ import Todo from './components/TodoComponents/Todo';
 
 const Todos = [
   {
@@ -15,7 +15,6 @@ const Todos = [
 ]
 
 
-
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -23,49 +22,69 @@ class App extends React.Component {
     constructor(){
 
       super();
+    
       this.state = {
         todosOnState: Todos,
 // the below empty strings are what gets populated
         todo: {
           task:'',
-          id: '',
-          completed: ''
+          id: Date.now(),
+          completed: false
         }
 
       }
 
-// This callback event handler function, upon the click of the submit button, updates the todo list with the newly submitted item
-      handleChanges= event => {
-        // console.log(event.target.name);
-        this.setState({
-        todo: {
-          ...this.state.todo, //all of the values on the todo item that might already be there that we don't want to erase
-          [event.target.name]: event.target.value //new inputs of the todo list. 
-        }
-        });
-      }
+
+// below function adds the submitted form item to the todo list by updating the state with an array comprising of the current state + the newly added todo item. 
+}
+
+handleChanges = event => {
+  console.log(event.target.name);
+  this.setState({
+    todo: {
+      ...this.state.todo,
+      [event.target.name]: event.target.value
     }
+  });
+};
 
- 
- 
- 
+addTodo = event => {
+  event.preventDefault();
+  this.setState({
+    todosOnState: [...this.state.todosOnState, this.state.todo],
+    todo: {}
+  });
+};
+
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        {/* <div className='todo-list'>
-          <Stj
-        </div>
-         */}  
-        </div>
-
-
-
-
-
-
-
+          {/* not sure what the below functional component is doing need to find out */}
+        <div className="todo-list">
+          {this.state.todosOnState.map (eleTodo => (
+            <Todo todo={eleTodo} key={eleTodo.id}/> 
+          ))}
+        </div> 
+        <form>
+          <input
+            placeholder="new task"
+            value={this.state.todo.task}
+            onChange={this.handleChanges}
+            name="task"
+          />
+          </form>
+  
+        <button onClick={this.addTodo}>Add Todo</button>
       </div>
+
+
+
+
+
+
+
+      
     );
   }
 }
