@@ -26,7 +26,7 @@ class App extends React.Component {
       this.state = {
         todosOnState: Todos,
 // the below empty strings are what gets populated
-        newTodo: {
+        todo: {
           task:'',
           id: '',
           completed: ''
@@ -53,10 +53,10 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        <div className='todo-list'>
+        {/* <div className='todo-list'>
           <Stj
-        
-        
+        </div>
+         */}  
         </div>
 
 

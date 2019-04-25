@@ -1,30 +1,30 @@
 import React from 'react';
 
+function Todo(props){
+
+return (
+
+<div className = "todo-item">
+ 
+  <h4>{props.todo.task}</h4>
+
+</div>
+
+
+)
+
+
+}
+
+
+export default Todo;
 
 
 
 
-const Todos = [
-    {
-      task: 'do the prework',
-      id: 1,
-      completed: false
-    },
-    {
-      task: 'attend live lecture',
-      id: 2,
-      completed: false
-    }
-  ]
-  
 
 
 
-
-
-
-
-  
 //     {
 //         task: 'get confused AF',
 //         id: 3,
