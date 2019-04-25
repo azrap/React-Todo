@@ -1,44 +1,28 @@
 import React from 'react';
 
-// Todo is the grandchild of Todolist which is the child of the entire App
+function Todo(props){
 
- function Todo(props){
+return (
 
-    let classNames = "todo"
-    if (props.todo.completed){
-      classNames += " completed";
-      // need to add strike-through styling for "todo completed"
-    }
+<div className = "todo-item">
+ 
+  <h4>{props.todo.task}</h4>
 
-
-    function updateCompletedHere(){
-
-          // this calls props.toggleComplete function called from App->TodoList->Todo
-
-      props.toggleComplete(props.todo.id);
-
-    }
+</div>
 
 
-    return (
-
-      <div className={classNames} onClick={updateCompletedHere}>
-
-      <props> {props.todo.name} </props>
-
-      </div>
-
-
-    );
-
+)
 
 
 }
 
 
+export default Todo;
 
 
-export default Todo
+
+
+
 
 
 //     {
